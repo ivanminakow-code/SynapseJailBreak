@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynapseJB — Best & Fastest iOS Jailbreak (iOS 15 – iOS 18)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #05060a;
+            --accent: #6c5ce7;
+            --accent2: #00d2ff;
+            --text: #e8eaf6;
+            --muted: #8b90a8;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.45;
+            z-index: 0;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 450px;
+            height: 450px;
+            background: var(--accent);
+            top: -150px;
+            left: -120px;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent2);
+            bottom: -140px;
+            right: -100px;
+            animation-delay: -6s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, -30px) scale(1.1); }
+        }
+
+        .grid-overlay {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+            mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 40px 24px;
+            max-width: 900px;
+            animation: fadeUp 1s ease both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(108, 92, 231, 0.12);
+            border: 1px solid rgba(108, 92, 231, 0.4);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #b8b0ff;
+            margin-bottom: 28px;
+        }
+
+        .badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00e676;
+            box-shadow: 0 0 12px #00e676;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        h1 {
+            font-size: clamp(2.4rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #ffffff 0%, #a29bfe 50%, #00d2ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+        }
+
+        h1 .accent {
+            display: block;
+            font-size: 0.55em;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            margin-top: 12px;
+            background: linear-gradient(90deg, var(--accent2), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.2vw, 1.25rem);
+            color: var(--muted);
+            max-width: 640px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 44px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 14px;
+            font-weight: 600;
+            color: #cfd3e8;
+            backdrop-filter: blur(10px);
+            transition: transform 0.25s, border-color 0.25s, background 0.25s;
+        }
+
+        .feature:hover {
+            transform: translateY(-3px);
+            border-color: rgba(108, 92, 231, 0.6);
+            background: rgba(108, 92, 231, 0.1);
+        }
+
+        .feature svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent2);
+            flex-shrink: 0;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 36px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            box-shadow: 0 10px 40px rgba(108, 92, 231, 0.45);
+            transition: transform 0.25s, box-shadow 0.25s;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 50px rgba(108, 92, 231, 0.65);
+        }
+
+        .cta:hover::after {
+            left: 100%;
+        }
+
+        .cta svg {
+            width: 20px;
+            height: 20px;
+            stroke: #fff;
+        }
+
+        .cta-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: none;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            position: relative;
+            z-index: 1;
+            margin-top: 60px;
+            padding: 20px;
+            font-size: 13px;
+            color: #565b73;
+            text-align: center;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal {
+            background: #0d0f18;
+            border: 1px solid rgba(108, 92, 231, 0.3);
+            border-radius: 20px;
+            max-width: 640px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 36px 32px;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            border: none;
+            color: var(--muted);
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
+
+        .modal h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff, #a29bfe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal .modal-sub {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .step-num {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .step-content h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #e8eaf6;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .step-content code {
+            background: rgba(108, 92, 231, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #b8b0ff;
+        }
+
+        .warning-box {
+            background: rgba(255, 171, 0, 0.08);
+            border: 1px solid rgba(255, 171, 0, 0.25);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 8px;
+            font-size: 13px;
+            color: #ffcc80;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 480px) {
+            .features { flex-direction: column; align-items: stretch; }
+            .feature { justify-content: center; }
+            .buttons { flex-direction: column; }
+            .cta { justify-content: center; }
+            .modal { padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="grid-overlay"></div>
+
+    <main class="container">
+        <div class="badge">
+            <span class="dot"></span>
+            iOS 15 – iOS 18 Supported
+        </div>
+
+        <h1>
+            SynapseJB
+            <span class="accent">Best &amp; Fastest Jailbreak in the World</span>
+        </h1>
+
+        <p class="subtitle">
+            A powerful jailbreak tool for iPhone, built to support iOS 15 through
+            iOS 18. Fast, stable, and designed to unlock the full potential of
+            your device.
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+                Ultra Fast
+            </div>
+            <div class="feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                Secure
+            </div>
+            <div class="feature">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+                iOS 15 – 18
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a href="https://github.com/ivanminakow-code/SynapseJailBreak/releases/download/jailbreak/SynapseJB.ipa" class="cta" download>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Get SynapseJB
+            </a>
+
+            <button class="cta cta-secondary" onclick="openModal()">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                How To Install
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 SynapseJB. All rights reserved.
+    </footer>
+
+    <div class="modal-overlay" id="installModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2>How To Install with Scarlet</h2>
+            <p class="modal-sub">Follow these steps to install SynapseJB on your iPhone or iPad</p>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Open Safari and visit Scarlet</h3>
+                    <p>Open <strong>Safari</strong> on your iPhone or iPad and go to the official Scarlet website. Tap the <strong>Install</strong> button and choose <strong>Direct Install</strong>.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Install the Scarlet app</h3>
+                    <p>When prompted, tap <strong>Install</strong> and wait for the Scarlet icon to appear on your home screen. The installation may take up to a minute.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Trust the developer profile</h3>
+                    <p>Go to <strong>Settings → General → VPN &amp; Device Management</strong>. Find the enterprise developer profile and tap <strong>Trust</strong>. Confirm the action.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h3>Download SynapseJB.ipa</h3>
+                    <p>Tap the <strong>Get SynapseJB</strong> button on this page to download the <code>.ipa</code> file to your device. It will be saved in your Files app.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-num">5</div>
+                <div class="step-content">
+                    <h3>Import and install in Scarlet</h3>
+                    <p>Open <strong>Scarlet</strong>, tap the import button, and select <code>SynapseJB.ipa</code> from your Files. Tap install and wait for the process to complete.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-num">6</div>
+                <div class="step-content">
+                    <h3>Trust and launch</h3>
+                    <p>After installation, go to <strong>Settings → General → VPN &amp; Device Management</strong> again and trust the new profile. Then open SynapseJB from your home screen.</p>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                ⚠️ <strong>Note:</strong> Scarlet uses enterprise certificates that Apple may revoke at any time. If the app stops working, you may need to reinstall it or wait for a new certificate.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('installModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('installModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('installModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
