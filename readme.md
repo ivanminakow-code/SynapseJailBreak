@@ -35,12 +35,4 @@ SynapseJB is a powerful jailbreak tool for iPhone, built to support iOS 15 throu
 #
 ---
 
-## 🛠️ Built With
 
-- **HTML5** — structure
-- **CSS3** — styling, animations, gradients
-- **GitHub Pages** — free static hosting
-
----
-
-## 📂 Project Structure
