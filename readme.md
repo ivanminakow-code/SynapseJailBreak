@@ -6,7 +6,7 @@ SynapseJB is a powerful jailbreak tool for iPhone, built to support iOS 15 throu
 
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 ![iOS](https://img.shields.io/badge/iOS-15%20–%2018-blue)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
 
 ---
 
